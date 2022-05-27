@@ -1,0 +1,15 @@
+:root {
+  --primary-1: red;
+
+  --theme-font-family: "Open Sans";
+  --theme-font-color: blue;
+}
+
+html {
+  font-family: var(--theme-font-family);
+  color: var(--theme-font-color);
+  text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+}
