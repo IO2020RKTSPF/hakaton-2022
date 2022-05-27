@@ -1,0 +1,20 @@
+.button {
+  padding: 12px;
+
+  border-radius: var(--theme-border-radius-1);
+
+  color: var(--theme-font-color-1);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 26px;
+  text-align: center;
+}
+
+.outline {
+  border: var(--theme-border-width-1) solid var(--theme-accent-color-1);
+}
+
+.filled {
+  border: unset;
+  background-color: var(--theme-accent-color-1);
+}

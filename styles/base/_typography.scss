@@ -1,19 +1,24 @@
 :root {
-  --color-1: #EAEAEA;
+  --color-1: #eaeaea;
   --color-2: #161616;
-  --color-3: #F37A51;
-  --color-4: #27292B;
-  --color-5: #65CF70;
-  --color-6: #EB5151;
+  --color-3: #f37a51;
+  --color-4: #27292b;
+  --color-5: #65cf70;
+  --color-6: #eb5151;
+  --color-7: #4c525c;
 
   --theme-font-family-1: "Open Sans";
 
   --theme-font-color-1: var(--color-1);
+  --theme-font-color-2: var(--color-7);
   --theme-accent-color-1: var(--color-3);
   --theme-error-color-1: var(--color-6);
   --theme-success-color-1: var(--color-5);
   --theme-background-color-1: var(--color-2);
   --theme-background-color-2: var(--color-4);
+
+  --theme-border-radius-1: 4px;
+  --theme-border-width-1: 2px;
 }
 
 html {
@@ -23,4 +28,20 @@ html {
   -webkit-text-size-adjust: none;
   -moz-text-size-adjust: none;
   -ms-text-size-adjust: none;
+  background-color: var(--theme-background-color-1);
+}
+
+a,
+p {
+  font-family: var(--theme-font-family-1);
+}
+
+a {
+  color: var(--theme-accent-color-1);
+}
+
+p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
 }

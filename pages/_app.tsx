@@ -1,9 +1,20 @@
-import '@styles/main.scss'
+import "@styles/main.scss";
 
-import type { AppProps } from 'next/app'
+import store from "@redux/store";
+import type { AppProps } from "next/app";
+import { Provider } from "react-redux";
+
+import Navigation from "../containers/Navigation/Navigation";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <>
+      <Provider store={store}>
+        <Navigation />
+        <Component {...pageProps} />
+      </Provider>
+    </>
+  );
 }
 
-export default MyApp
+export default MyApp;
