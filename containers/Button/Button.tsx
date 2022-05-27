@@ -6,8 +6,10 @@ function Button({
   outline,
   children,
   className,
+  onClick,
 }: {
   outline?: boolean;
+  onClick?: any;
   children: JSX.Element | string;
   className?: string;
 }) {
@@ -17,6 +19,7 @@ function Button({
         [styles.outline]: outline,
         [styles.filled]: !outline,
       })}
+      onClick={onClick}
     >
       {children}
     </button>

@@ -11,7 +11,9 @@
 }
 
 .outline {
-  border: var(--theme-border-width-1) solid var(--theme-accent-color-1);
+  border: var(--theme-border-width-1) solid currentColor;
+  color: var(--theme-accent-color-1);
+  background-color: unset;
 }
 
 .filled {
