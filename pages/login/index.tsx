@@ -1,19 +1,17 @@
 import AuthForm from "@containers/AuthForm/AuthForm";
 import Heading from "@containers/Heading/Heading";
+import Input from "@containers/Input/Input";
 import Paragraph from "@containers/Paragraph/Paragraph";
 import Link from "next/link";
+import { useState } from "react";
 
 import config from "../../config";
 import Container from "../../containers/Container/Container";
-import Input from "@containers/Input/Input";
-import { useState } from "react";
 import usePostRequest from "../../hooks/usePostRequest";
 
 function Login({}) {
-  const [email, setEmail] = useState();
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
-  const [organizationName, setOrganizationName] = useState();
 
   const { fetch, response } = usePostRequest({
     pathname: "/api/auth/login",
@@ -21,8 +19,6 @@ function Login({}) {
 
   const handleSubmit = async () => {
     await fetch({
-      email,
-      organizationName,
       username,
       password,
     });

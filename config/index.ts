@@ -6,6 +6,7 @@ const config = {
   loginPath: "/login",
   userPath: "/user",
   registerPath: "/register",
+  addEstimatePath: "/user/add/estimate",
 };
 
 export default config;

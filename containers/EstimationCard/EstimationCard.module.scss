@@ -1,0 +1,22 @@
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  margin-block-end: 24px;
+
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 26px;
+  text-align: center;
+}
+
+.value {
+  margin-block-end: 36px;
+
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 65px;
+  text-align: center;
+}

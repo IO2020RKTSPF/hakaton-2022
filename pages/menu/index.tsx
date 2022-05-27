@@ -24,7 +24,7 @@ function Menu({}) {
       <Container>
         <ul className={styles.navigation}>
           <Entry label="Start" href={config.homepagePath} />
-          <Entry label="Dodaj estymacje" href={config.homepagePath} />
+          <Entry label="Dodaj estymacje" href={config.addEstimatePath} />
           <Entry label="Twoje estymacje" href={config.userPath} />
           <Entry label="Zaloguj się" href={config.loginPath} />
           <Entry label="Zarejestruj się" href={config.registerPath} />

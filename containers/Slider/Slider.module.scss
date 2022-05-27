@@ -1,0 +1,24 @@
+.thumb {
+  height: 32px;
+  width: 32px;
+  background-color: var(--theme-accent-color-1);
+  border-radius: 50%;
+}
+
+.track {
+  height: 12px;
+  width: 100%;
+  background-color: var(--theme-font-color-2);
+  border-radius: 12px;
+}
+
+.unit {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2px;
+
+  color: var(--theme-font-color-2);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 26px;
+}
