@@ -1,6 +1,7 @@
 import "@styles/main.scss";
 
-import store from "@redux/store";
+import AuthHelper from "@containers/AuthHelper";
+import configureStore from "@redux/configureStore";
 import type { AppProps } from "next/app";
 import { Provider } from "react-redux";
 
@@ -9,7 +10,8 @@ import Navigation from "../containers/Navigation/Navigation";
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Provider store={store}>
+      <Provider store={configureStore}>
+        <AuthHelper />
         <Navigation />
         <Component {...pageProps} />
       </Provider>

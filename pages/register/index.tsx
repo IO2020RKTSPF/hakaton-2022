@@ -6,16 +6,21 @@ import Link from "next/link";
 import config from "../../config";
 import Container from "../../containers/Container/Container";
 import Input from "@containers/Input/Input";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import usePostRequest from "../../hooks/usePostRequest";
+import { AuthPostResponse } from "@api/index";
+import { useDispatch } from "react-redux";
+import { setToken } from "@redux/reducers/auth";
 
 function Register({}) {
+  const dispatch = useDispatch();
+
   const [email, setEmail] = useState();
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
   const [organizationName, setOrganizationName] = useState();
 
-  const { fetch, response } = usePostRequest({
+  const { fetch, response } = usePostRequest<any, AuthPostResponse>({
     pathname: "/api/auth/register",
   });
 
@@ -27,6 +32,10 @@ function Register({}) {
       password,
     });
   };
+
+  useEffect(() => {
+    dispatch(setToken(response?.token));
+  }, [dispatch, response]);
 
   return (
     <Container>

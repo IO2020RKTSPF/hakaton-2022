@@ -12,9 +12,9 @@ export interface RegisterPostBody {
   firstName: string;
   lastName: string;
 }
-export interface LoginPostResponse {
-  jwt: string;
-  user: { email: string };
+
+export interface AuthPostResponse {
+  token: string;
 }
 
 export interface MeGetResponse {

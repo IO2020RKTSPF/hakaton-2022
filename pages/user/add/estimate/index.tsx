@@ -1,10 +1,13 @@
-import styles from "./Estimate.module.scss";
-import Container from "@containers/Container/Container";
-import Card from "@containers/Card/Card";
-import Paragraph from "@containers/Paragraph/Paragraph";
-import { useState } from "react";
-import EstimationCard from "@containers/EstimationCard/EstimationCard";
 import Button from "@containers/Button/Button";
+import Card from "@containers/Card/Card";
+import Container from "@containers/Container/Container";
+import EstimationCard from "@containers/EstimationCard/EstimationCard";
+import { useState } from "react";
+
+import usePostRequest from "../../../../hooks/usePostRequest";
+import styles from "./Estimate.module.scss";
+import { useSelector } from "react-redux";
+import { getToken } from "@redux/reducers/auth/selectors";
 
 function Estimate({}) {
   const [lines, setLines] = useState(500);
@@ -14,13 +17,30 @@ function Estimate({}) {
   const [taskKnowledge, setTaskKnowledge] = useState(5);
   const [quality, setQuality] = useState(5);
 
+  const { fetch, response } = usePostRequest({ pathname: "/api/estimate" });
+
+  const token = useSelector(getToken);
+
+  const handleSubmit = async () => {
+    await fetch({
+      useAi: true,
+      lines,
+      codeFamiliarity,
+      experience,
+      projectScale,
+      taskKnowledge,
+    });
+  };
+
+  console.log(response);
+
   return (
     <Container>
       <div className={styles.estimation}>
         <header className={styles.header}>
           <h1 className={styles.title}>Start estymacja</h1>
           <Card>
-            <Paragraph className={styles.name}>Estymacja 1</Paragraph>
+            <span className={styles.name}>Estymacja 1</span>
           </Card>
         </header>
         <EstimationCard
@@ -65,8 +85,8 @@ function Estimate({}) {
           onChange={setQuality}
           max={10}
         />
-        <Button>Prześlij</Button>
-        <Button>Anuluj</Button>
+        <Button onClick={handleSubmit}>Prześlij</Button>
+        <Button outline>Anuluj</Button>
       </div>
     </Container>
   );
