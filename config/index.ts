@@ -1,10 +1,10 @@
 const config = {
-  apiUrl: "https://localhost:7013",
+  apiUrl: "http://localhost:8080",
   homepagePath: "/",
   menuPath: "/menu",
-  logoutPath: "/auth/logout",
+  logoutPath: "/logout",
   loginPath: "/login",
-  userPath: "/user",
+  userPath: "/estimations",
   registerPath: "/register",
   addEstimatePath: "/user/add/estimate",
   cookieTokenName: "quicktime-token",

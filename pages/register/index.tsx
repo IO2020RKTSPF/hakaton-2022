@@ -1,16 +1,17 @@
+import { AuthPostResponse } from "@api/index";
 import AuthForm from "@containers/AuthForm/AuthForm";
 import Heading from "@containers/Heading/Heading";
+import Input from "@containers/Input/Input";
 import Paragraph from "@containers/Paragraph/Paragraph";
+import { setToken } from "@redux/reducers/auth";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 
 import config from "../../config";
 import Container from "../../containers/Container/Container";
-import Input from "@containers/Input/Input";
-import { useEffect, useState } from "react";
 import usePostRequest from "../../hooks/usePostRequest";
-import { AuthPostResponse } from "@api/index";
-import { useDispatch } from "react-redux";
-import { setToken } from "@redux/reducers/auth";
+import isString from "../../lib/isString";
 
 function Register({}) {
   const dispatch = useDispatch();
@@ -34,6 +35,9 @@ function Register({}) {
   };
 
   useEffect(() => {
+    const token = response?.token;
+    if (!isString(token)) return;
+
     dispatch(setToken(response?.token));
   }, [dispatch, response]);
 
