@@ -4,6 +4,6 @@ export const convertToHours = (minutes: number) => {
 }
 
 export const convertDiffToStr = (result: number, actualResult: number) => {
-    let value = convertToHours(actualResult - result);
+    let value = convertToHours(actualResult * 60 - result);
     return value < 0 ? value + "h" : "+" +  value + "h";
 }

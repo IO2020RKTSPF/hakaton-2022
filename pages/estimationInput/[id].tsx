@@ -4,23 +4,26 @@ import usePutRequest from "hooks/usePutRequest";
 import { useState } from "react";
 import Container from "@containers/Container/Container";
 import style from "./EstimationInput.module.scss";
+import { useRouter } from "next/router";
 
-const EstimationInput = ({id}:{id:number}) => {
+const EstimationInput = ({}) => {
 
-    const [estimation, setEstimation] = useState(200);
+    const [estimation, setEstimation] = useState(5);
+
+    const router = useRouter();
 
     const { fetch } = usePutRequest({ pathname: "/api/estimate" });
 
     const handleSubmit = async () => {
         await fetch({
-            estimationId: id,
+            estimationId: router?.query?.id,
             actualValue: estimation
         });
     };
 
     return (
         <Container>
-            <EstimationCard title="Test" value={estimation} min={60} max={5000} onChange={setEstimation}></EstimationCard>
+            <EstimationCard title="Czas spędzony na zadaniu w godzinach" value={estimation} min={1} max={86} onChange={setEstimation}></EstimationCard>
             <Button onClick={handleSubmit}>Prześlij</Button>
         </Container>
     )
