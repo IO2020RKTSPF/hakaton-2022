@@ -4,8 +4,11 @@ import config from "../../config";
 import Container from "../../containers/Container/Container";
 import Icon from "../../containers/Icon/Icon";
 import styles from "./Menu.module.scss";
+import useIsAuth from "../../hooks/useIsAuth";
 
 function Menu({}) {
+  const isAuth = useIsAuth();
+
   const Entry = ({ label, href }: { label: string; href: string }) => {
     return (
       <li className={styles.linkWrapper}>
@@ -26,8 +29,11 @@ function Menu({}) {
           <Entry label="Start" href={config.homepagePath} />
           <Entry label="Dodaj estymacje" href={config.addEstimatePath} />
           <Entry label="Twoje estymacje" href={config.userPath} />
-          <Entry label="Zaloguj się" href={config.loginPath} />
-          <Entry label="Zarejestruj się" href={config.registerPath} />
+          {isAuth && <Entry label="Wyloguj się" href={config.logoutPath} />}
+          {!isAuth && <Entry label="Zaloguj się" href={config.loginPath} />}
+          {!isAuth && (
+            <Entry label="Zarejestruj się" href={config.registerPath} />
+          )}
         </ul>
       </Container>
     </nav>
