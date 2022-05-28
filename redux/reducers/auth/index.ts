@@ -16,11 +16,11 @@ const initialState: User = {
 
 const auth: any = handleActions(
   {
-    [setToken]: (state: User, { payload }: { payload: string }) => ({
+    [SET_TOKEN]: (state: User, { payload }: { payload: string }) => ({
       ...state,
       token: payload,
     }),
-    [clearToken]: () => initialState,
+    [CLEAR_TOKEN]: () => initialState,
   },
   initialState
 );
