@@ -1,0 +1,36 @@
+
+.card {
+    border-radius: 8px;
+    margin-bottom: 5%;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.posVal {
+    color: var(--color-5);
+    font-size: 24px;
+    line-height: 26px;
+    font-weight: 600;
+}
+
+.negVal {
+    color: var(--color-6);
+    font-size: 24px;
+    line-height: 26px;
+    font-weight: 600;
+}
+
+.regVal {
+    font-size: 24px;
+    line-height: 26px;
+    font-weight: 600;
+}
+
+.title {
+    font-size: 16px;
+    line-height: 20px;
+}
