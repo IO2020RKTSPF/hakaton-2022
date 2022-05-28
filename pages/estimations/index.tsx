@@ -3,9 +3,17 @@ import Card from "@containers/Card/Card";
 import styles from "./Estimations.module.scss"
 import Container from "@containers/Container/Container";
 import Icon from "@containers/Icon/Icon";
+import EstimationItem from "@containers/EstimationItem/EstimationItem";
+import { IEstimationModel } from "@containers/EstimationItem/EstimationItem";
 
+const models: IEstimationModel[] = [
+    {title: "Title", result: 555, userResult: 654},
+    {title: "Title2", result: 444, userResult: 123},
+    {title: "Title3", result: 777, userResult: 444},
+]
 
 const estimations = ({}) => {
+
 
     return(
         <div>
@@ -18,12 +26,13 @@ const estimations = ({}) => {
             
             
             <Container>
-                <Card className={styles.card}>
-                    <p>Test</p>
-                </Card>
-                <Card className={styles.card}>
-                    <p>Test</p>
-                </Card>
+                {
+                    models.map((model, idx) => {
+                        return (
+                            <EstimationItem key={idx} model={model}></EstimationItem>
+                        )
+                    })
+                }
             </Container>
             
            
