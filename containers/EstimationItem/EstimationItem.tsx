@@ -20,10 +20,10 @@ const EstimationItem = ({model}:{model:IEstimationModel}) => {
                 <Container>
                     <div className={styles.flex}>
                         <div>
-                            <p>{convertToHours(model.result) + "h"}</p>
+                            <p className={styles.regVal}>{convertToHours(model.result) + "h"}</p>
                             <p className={!sign ? styles.posVal : styles.negVal}>{convertDiffToStr(model.result, model.userResult)}</p>
                         </div>
-                        <p>{model.title}</p>
+                        <p className={styles.title}>{model.title}</p>
                         <Icon type="clock"></Icon>
                     </div>
                 </Container>
