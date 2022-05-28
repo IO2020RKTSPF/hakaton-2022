@@ -6,13 +6,6 @@ import Icon from "@containers/Icon/Icon";
 import EstimationItem from "@containers/EstimationItem/EstimationItem";
 import { IEstimationModel } from "@containers/EstimationItem/EstimationItem";
 
-const models: IEstimationModel[] = [
-    {title: "Title", result: 555, userResult: 654},
-    {title: "Title2", result: 444, userResult: 123},
-    {title: "Title3", result: 777, userResult: 444},
-]
-
-
 const Estimations = ({}) => {
 
     const {response = []} = useGetRequest<IEstimationModel[]>({pathname: "/api/estimate"});
