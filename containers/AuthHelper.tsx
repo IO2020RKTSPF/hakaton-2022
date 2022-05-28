@@ -22,7 +22,7 @@ function AuthHelper() {
 
   useEffect(() => {
     if (!isString(token)) return;
-    //router.push(config.homepagePath);
+    // router.push(config.homepagePath, undefined, { shallow: true });
     Cookies.set(config.cookieTokenName, token);
   }, [token]);
 

@@ -21,7 +21,7 @@ function Estimate({}) {
 
   const router = useRouter();
 
-  const { fetch, response } = usePostRequest({ pathname: "/api/estimate" });
+  const { fetch } = usePostRequest({ pathname: "/api/estimate" });
 
   const handleSubmit = async () => {
     await fetch({
@@ -32,6 +32,7 @@ function Estimate({}) {
       experience,
       projectScale,
       taskKnowledge,
+      quality,
     });
     router.push(config.userPath, undefined, { shallow: true });
   };
