@@ -29,10 +29,16 @@ const EstimationItem = ({model}:{model:IEstimationModel}) => {
                             }
                         </div>
                         <p className={styles.title}>{model.title}</p>
-                        <a href={`${config.estimationInput}/${model.id}`}>
-                            <Icon type="clock"></Icon>
+                        {
+                            model.userResult === -1 ?
+                            <a href={`${config.estimationInput}/${model.id}`}>
+                                <Icon type="clock"></Icon>
+                            </a>
+                            : <div></div>
+
+                        }
+                        
                             
-                        </a>
                     </div>
                 </Container>
             </Card>

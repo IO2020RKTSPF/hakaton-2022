@@ -19,6 +19,7 @@ const EstimationInput = ({}) => {
             estimationId: router?.query?.id,
             actualValue: estimation
         });
+        router.push("/estimations", undefined, {shallow: true});
     };
 
     return (
