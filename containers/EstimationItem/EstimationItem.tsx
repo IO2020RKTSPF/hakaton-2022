@@ -2,6 +2,7 @@ import Card from "@containers/Card/Card";
 import styles from "./EstimationItem.module.scss"
 import Icon from "@containers/Icon/Icon";
 import Container from "@containers/Container/Container";
+import { convertDiffToStr, convertToHours } from "lib/converters";
 
 export interface IEstimationModel {
     title: string;
@@ -10,17 +11,6 @@ export interface IEstimationModel {
 }
 
 const EstimationItem = ({model}:{model:IEstimationModel}) => {
-
-    const convertToHours = (minutes: number) => {
-        let result = minutes < 0 ? Math.ceil(minutes / 60) : Math.floor(minutes / 60);
-        return result;
-    }
-
-    const convertDiffToStr = (result: number, actualResult: number) => {
-        let value = convertToHours(actualResult - result);
-        return value < 0 ? value + "h" : "+" +  value + "h";
-    }
-
     let sign = convertToHours(model.userResult - model.result) > 0;
 
     return (
