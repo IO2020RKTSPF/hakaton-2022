@@ -5,7 +5,7 @@ import { useState } from "react";
 import Container from "@containers/Container/Container";
 import style from "./EstimationInput.module.scss";
 
-const EstimationInput = ({}) => {
+const EstimationInput = ({id}:{id:number}) => {
 
     const [estimation, setEstimation] = useState(200);
 
@@ -13,8 +13,8 @@ const EstimationInput = ({}) => {
 
     const handleSubmit = async () => {
         await fetch({
-            estimationId: 0,
-            actualValue: 0
+            estimationId: id,
+            actualValue: estimation
         });
     };
 
