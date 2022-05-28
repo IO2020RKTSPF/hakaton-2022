@@ -23,8 +23,9 @@ function Estimate({}) {
 
   const handleSubmit = async () => {
     await fetch({
-      useAi: true,
+      useAi: false,
       lines,
+      quality,
       codeFamiliarity,
       experience,
       projectScale,
