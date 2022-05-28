@@ -26,7 +26,6 @@ function Estimate({}) {
   const handleSubmit = async () => {
     await fetch({
       useAi: useAi,
-      name: "Estymacja",
       lines,
       codeFamiliarity,
       experience,
