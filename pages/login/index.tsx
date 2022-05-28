@@ -1,19 +1,25 @@
+import { AuthPostResponse } from "@api/index";
 import AuthForm from "@containers/AuthForm/AuthForm";
 import Heading from "@containers/Heading/Heading";
 import Input from "@containers/Input/Input";
 import Paragraph from "@containers/Paragraph/Paragraph";
+import { setToken } from "@redux/reducers/auth";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 
 import config from "../../config";
 import Container from "../../containers/Container/Container";
 import usePostRequest from "../../hooks/usePostRequest";
+import isString from "../../lib/isString";
 
 function Login({}) {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
 
-  const { fetch, response } = usePostRequest({
+  const dispatch = useDispatch();
+
+  const { fetch, response } = usePostRequest<any, AuthPostResponse>({
     pathname: "/api/auth/login",
   });
 
@@ -23,6 +29,13 @@ function Login({}) {
       password,
     });
   };
+
+  useEffect(() => {
+    const token = response?.token;
+    if (!isString(token)) return;
+
+    dispatch(setToken(response?.token));
+  }, [dispatch, response]);
 
   return (
     <Container>
