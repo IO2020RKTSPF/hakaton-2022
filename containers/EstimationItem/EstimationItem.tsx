@@ -3,15 +3,17 @@ import styles from "./EstimationItem.module.scss"
 import Icon from "@containers/Icon/Icon";
 import Container from "@containers/Container/Container";
 import { convertDiffToStr, convertToHours } from "lib/converters";
+import config from "../../config";
 
 export interface IEstimationModel {
+    id: number;
     title: string;
     result: number;
     userResult: number;
 }
 
 const EstimationItem = ({model}:{model:IEstimationModel}) => {
-    let sign = convertToHours(model.userResult - model.result) > 0;
+    let sign = convertToHours(model.userResult * 60 - model.result) > 0;
 
     return (
     
@@ -27,7 +29,16 @@ const EstimationItem = ({model}:{model:IEstimationModel}) => {
                             }
                         </div>
                         <p className={styles.title}>{model.title}</p>
-                        <Icon type="clock"></Icon>
+                        {
+                            model.userResult === -1 ?
+                            <a href={`${config.estimationInput}/${model.id}`}>
+                                <Icon type="clock"></Icon>
+                            </a>
+                            : <div></div>
+
+                        }
+                        
+                            
                     </div>
                 </Container>
             </Card>

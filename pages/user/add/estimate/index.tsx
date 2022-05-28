@@ -32,7 +32,6 @@ function Estimate({}) {
       experience,
       projectScale,
       taskKnowledge,
-      quality,
     });
     router.push(config.userPath, undefined, { shallow: true });
   };

@@ -8,6 +8,7 @@ const config = {
   registerPath: "/register",
   addEstimatePath: "/user/add/estimate",
   cookieTokenName: "quicktime-token",
+  estimationInput: "/estimationInput"
 };
 
 export default config;
