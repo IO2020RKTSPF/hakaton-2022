@@ -12,8 +12,10 @@ const models: IEstimationModel[] = [
     {title: "Title3", result: 777, userResult: 444},
 ]
 
-const estimations = ({}) => {
 
+const Estimations = ({}) => {
+
+    const {response = []} = useGetRequest<IEstimationModel[]>({pathname: "/api/estimate"});
 
     return(
         <div>
@@ -27,7 +29,7 @@ const estimations = ({}) => {
             
             <Container>
                 {
-                    models.map((model, idx) => {
+                    response.map((model, idx) => {
                         return (
                             <EstimationItem key={idx} model={model}></EstimationItem>
                         )
@@ -40,4 +42,4 @@ const estimations = ({}) => {
     )
 }
 
-export default estimations;
+export default Estimations;

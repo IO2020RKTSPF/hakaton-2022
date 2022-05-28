@@ -22,6 +22,7 @@ function Estimate({}) {
       useAi: false,
       name: "asdasd",
       lines,
+      quality,
       codeFamiliarity,
       experience,
       projectScale,
