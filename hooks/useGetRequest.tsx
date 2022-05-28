@@ -36,7 +36,7 @@ function useGetRequest<TResponse>({ pathname }: IUseGetRequestProps) {
 
     fetch();
     // eslint-disable-next-line
-  }, [pathname]);
+  }, [pathname, token]);
 
   return { response, error, loading };
 }
