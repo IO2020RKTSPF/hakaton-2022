@@ -4,8 +4,16 @@
     margin-bottom: 5%;
 }
 
-.estimation {
+.flex {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.posVal {
+    color: var(--color-5);
+}
+
+.negVal {
+    color: var(--color-6);
 }
