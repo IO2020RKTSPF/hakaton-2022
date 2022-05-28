@@ -27,7 +27,6 @@ function Estimate({}) {
       experience,
       projectScale,
       taskKnowledge,
-      quality,
     });
   };
 

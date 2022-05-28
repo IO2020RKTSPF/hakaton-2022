@@ -3,6 +3,7 @@ import styles from "./EstimationItem.module.scss"
 import Icon from "@containers/Icon/Icon";
 import Container from "@containers/Container/Container";
 import { convertDiffToStr, convertToHours } from "lib/converters";
+import config from "../../config";
 
 export interface IEstimationModel {
     title: string;
@@ -27,7 +28,10 @@ const EstimationItem = ({model}:{model:IEstimationModel}) => {
                             }
                         </div>
                         <p className={styles.title}>{model.title}</p>
-                        <Icon type="clock"></Icon>
+                        <a href={config.estimationInput}>
+                            <Icon type="clock"></Icon>
+                            
+                        </a>
                     </div>
                 </Container>
             </Card>
