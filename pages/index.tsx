@@ -1,3 +1,4 @@
+import Heading from "@containers/Heading/Heading";
 import type { NextPage } from "next";
 import Head from "next/head";
 
@@ -12,7 +13,9 @@ const Home: NextPage = () => {
         <meta name="color-scheme" content="dark" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>123</main>
+      <header>
+        <Heading label="Zacznij estymować szybciej i trafniej" />
+      </header>
       <footer className={styles.footer}></footer>
     </div>
   );
