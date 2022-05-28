@@ -6,6 +6,8 @@ import { useState } from "react";
 
 import usePostRequest from "../../../../hooks/usePostRequest";
 import styles from "./Estimate.module.scss";
+import { useSelector } from "react-redux";
+import { getToken } from "@redux/reducers/auth/selectors";
 
 function Estimate({}) {
   const [lines, setLines] = useState(500);
@@ -16,6 +18,8 @@ function Estimate({}) {
   const [quality, setQuality] = useState(5);
 
   const { fetch, response } = usePostRequest({ pathname: "/api/estimate" });
+
+  const token = useSelector(getToken);
 
   const handleSubmit = async () => {
     await fetch({
