@@ -7,6 +7,8 @@ import { useState } from "react";
 
 import usePostRequest from "../../../../hooks/usePostRequest";
 import styles from "./Estimate.module.scss";
+import { useRouter } from "next/router";
+import config from "../../../../config";
 
 function Estimate({}) {
   const [lines, setLines] = useState(500);
@@ -17,7 +19,9 @@ function Estimate({}) {
   const [quality, setQuality] = useState(5);
   const [useAi, setUseAi] = useState(false);
 
-  const { fetch } = usePostRequest({ pathname: "/api/estimate" });
+  const router = useRouter();
+
+  const { fetch, response } = usePostRequest({ pathname: "/api/estimate" });
 
   const handleSubmit = async () => {
     await fetch({
@@ -30,6 +34,7 @@ function Estimate({}) {
       taskKnowledge,
       quality,
     });
+    router.push(config.userPath, undefined, { shallow: true });
   };
 
   return (

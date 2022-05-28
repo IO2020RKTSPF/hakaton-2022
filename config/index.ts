@@ -1,5 +1,5 @@
 const config = {
-  apiUrl: "https://localhost:7013",
+  apiUrl: "http://localhost:8080",
   homepagePath: "/",
   menuPath: "/menu",
   logoutPath: "/logout",

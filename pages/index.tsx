@@ -16,7 +16,6 @@ const Home: NextPage = () => {
       <header>
         <Heading label="Zacznij estymować szybciej i trafniej" />
       </header>
-      <footer className={styles.footer}></footer>
     </div>
   );
 };
