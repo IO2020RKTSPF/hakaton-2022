@@ -5,6 +5,7 @@ import Input from "@containers/Input/Input";
 import Paragraph from "@containers/Paragraph/Paragraph";
 import { setToken } from "@redux/reducers/auth";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
@@ -15,6 +16,7 @@ import isString from "../../lib/isString";
 
 function Register({}) {
   const dispatch = useDispatch();
+  const router = useRouter();
 
   const [email, setEmail] = useState();
   const [username, setUsername] = useState();
@@ -38,6 +40,7 @@ function Register({}) {
     const token = response?.token;
     if (!isString(token)) return;
 
+    router.push(config.userPath, undefined, { shallow: true });
     dispatch(setToken(response?.token));
   }, [dispatch, response]);
 

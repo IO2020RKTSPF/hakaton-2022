@@ -27,8 +27,10 @@ function Menu({}) {
       <Container>
         <ul className={styles.navigation}>
           <Entry label="Start" href={config.homepagePath} />
-          <Entry label="Dodaj estymacje" href={config.addEstimatePath} />
-          <Entry label="Twoje estymacje" href={config.userPath} />
+          {isAuth && (
+            <Entry label="Dodaj estymacje" href={config.addEstimatePath} />
+          )}
+          {isAuth && <Entry label="Twoje estymacje" href={config.userPath} />}
           {isAuth && <Entry label="Wyloguj się" href={config.logoutPath} />}
           {!isAuth && <Entry label="Zaloguj się" href={config.loginPath} />}
           {!isAuth && (

@@ -12,10 +12,13 @@ import config from "../../config";
 import Container from "../../containers/Container/Container";
 import usePostRequest from "../../hooks/usePostRequest";
 import isString from "../../lib/isString";
+import { useRouter } from "next/router";
 
 function Login({}) {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
+
+  const router = useRouter();
 
   const dispatch = useDispatch();
 
@@ -35,6 +38,7 @@ function Login({}) {
     if (!isString(token)) return;
 
     dispatch(setToken(response?.token));
+    router.push(config.userPath, undefined, { shallow: true });
   }, [dispatch, response]);
 
   return (
